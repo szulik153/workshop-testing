@@ -70,7 +70,6 @@ export class CreateBaselineComponent {
   };
 
   onSubmit() {
-    console.log(this.baselineToSave);
     this.addMapping.emit({ ...this.baselineToSave });
   }
 }
