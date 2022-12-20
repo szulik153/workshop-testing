@@ -28,6 +28,7 @@ import { BaselineSaveDto } from '../types/baseline';
           matInput
           required
           name="actualPartNumber"
+          aria-label="Actual Part Number"
           [(ngModel)]="baselineToSave.actualPartNumber"
         />
         <mat-error>Field is required</mat-error>
