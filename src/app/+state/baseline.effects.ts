@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { BaselineApiActions, MappingTabActions } from './baseline.actions';
 import { MappingService } from '../services/mapping.service';
-import { catchError, map, mergeMap, of, switchMap } from 'rxjs';
+import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
 import { AppActions } from './app.actions';
 import { SidebarActions } from './sidebar.actions';
 
@@ -21,6 +21,18 @@ export class BaselineEffects {
       )
     );
   });
+
+  addBaselineFailure$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(BaselineApiActions.addBaselineFailure),
+        tap(() => console.error('ERROR'))
+      );
+    },
+    {
+      dispatch: false,
+    }
+  );
 
   loadBaselinesOnStartup$ = createEffect(() => {
     return this.actions$.pipe(

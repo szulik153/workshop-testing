@@ -11,3 +11,5 @@ export const selectBaselinesCount = createSelector(
   baselinesFeature.selectBaselinesState,
   selectTotal
 );
+
+export const selectLoading = baselinesFeature.selectLoading;

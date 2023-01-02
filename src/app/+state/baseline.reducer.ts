@@ -2,8 +2,9 @@ import { createFeature, createReducer, on } from '@ngrx/store';
 import { BaselineApiActions } from './baseline.actions';
 import { createEntityAdapter, EntityState } from '@ngrx/entity';
 import { BaselineDto } from '../types/baseline';
+import { AppActions } from './app.actions';
 
-interface State extends EntityState<BaselineDto> {
+export interface State extends EntityState<BaselineDto> {
   loading: boolean;
 }
 
@@ -14,7 +15,7 @@ export const adapter = createEntityAdapter<BaselineDto>({
     new Date(b.createdAt).getUTCMilliseconds(),
 });
 
-const initialState: State = adapter.getInitialState({
+export const initialState: State = adapter.getInitialState({
   loading: false,
 });
 
@@ -26,9 +27,17 @@ export const baselinesFeature = createFeature({
       BaselineApiActions.addBaselineSuccess,
       (state, action): State => adapter.addOne(action.baseline, state)
     ),
+    on(AppActions.appOpened, (state) => ({
+      ...state,
+      loading: true,
+    })),
     on(BaselineApiActions.loadAllBaselinesSuccess, (state, action) =>
-      adapter.setAll(action.baselines, state)
+      adapter.setAll(action.baselines, { ...state, loading: false })
     ),
+    on(BaselineApiActions.loadAllBaselinesFailure, (state) => ({
+      ...state,
+      loading: false,
+    })),
     on(BaselineApiActions.deleteBaselineSuccess, (state, action) =>
       adapter.removeOne(action.id, state)
     )

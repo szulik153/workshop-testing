@@ -30,12 +30,13 @@ describe('MappingService', () => {
   });
 
   it('should return baselines', () => {
+    const createdAt = new Date().toISOString();
     const httpResponse = [
       {
         id: '1234',
         actualPartNumber: 'a1',
         targetPartNumber: 'a2',
-        createdAt: new Date().toISOString(),
+        createdAt: createdAt,
       },
     ];
     const expected: BaselineDto[] = [
@@ -43,7 +44,7 @@ describe('MappingService', () => {
         id: '1234',
         actualPartNumber: 'a1',
         targetPartNumber: 'a2',
-        createdAt: new Date().toISOString(),
+        createdAt: createdAt,
       },
     ];
 
