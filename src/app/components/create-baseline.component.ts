@@ -27,6 +27,7 @@ import { BaselineSaveDto } from '../types/baseline';
         <input
           matInput
           required
+          data-cy="actual-part-number"
           name="actualPartNumber"
           aria-label="Actual Part Number"
           [(ngModel)]="baselineToSave.actualPartNumber"
@@ -39,6 +40,7 @@ import { BaselineSaveDto } from '../types/baseline';
         <input
           matInput
           required
+          data-cy="target-part-number"
           name="targetPartNumber"
           [(ngModel)]="baselineToSave.targetPartNumber"
         />
@@ -46,9 +48,17 @@ import { BaselineSaveDto } from '../types/baseline';
       </mat-form-field>
 
       <div class="flex flex-row items-center justify-end gap-2">
-        <button mat-flat-button color="warn" type="reset">Reset</button>
         <button
           mat-flat-button
+          data-cy="reset-button"
+          color="warn"
+          type="reset"
+        >
+          Reset
+        </button>
+        <button
+          mat-flat-button
+          data-cy="save-button"
           color="primary"
           type="submit"
           [disabled]="form.invalid"

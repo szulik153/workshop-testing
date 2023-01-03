@@ -1,0 +1,20 @@
+[
+  {
+    "id": "0f86a219-2ddd-47c4-9f97-9aa5bc7ce9b9",
+    "actualPartNumber": "mock1",
+    "targetPartNumber": "mock1-1",
+    "createdAt": "2022-11-10T11:40:00.000Z"
+  },
+  {
+    "id": "1784d671-e96b-489d-a544-fc3630cecbdc",
+    "actualPartNumber": "mock2",
+    "targetPartNumber": "mock2-2",
+    "createdAt": "2022-11-12T15:22:10.000Z"
+  },
+  {
+    "id": "9e6ce055-1cca-4f41-bfa6-60fa724caa44",
+    "actualPartNumber": "mock3",
+    "targetPartNumber": "mock3-3",
+    "createdAt": "2022-12-10T08:20:00.000Z"
+  }
+]

@@ -20,7 +20,12 @@ import { BaselineDto } from '../types/baseline';
         <p>Target: {{ baseline.targetPartNumber }}</p>
       </mat-card-content>
       <mat-card-actions align="end">
-        <button mat-icon-button color="warn" (click)="onDelete()">
+        <button
+          mat-icon-button
+          data-cy="delete-button"
+          color="warn"
+          (click)="onDelete()"
+        >
           <mat-icon>delete</mat-icon>
         </button>
       </mat-card-actions>
